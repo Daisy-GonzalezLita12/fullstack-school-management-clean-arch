@@ -11,9 +11,12 @@ public class AlumnoMapper {
         AlumnoDTO dto = new AlumnoDTO();
         dto.setId(alumno.getId());
         dto.setNumeroControl(alumno.getNumeroControl());
-        // Juntamos nombre y apellido aquí mismo
-        dto.setNombreCompleto(alumno.getNombre() + " " + alumno.getApellido());
+        dto.setNombre(alumno.getNombre());
+        dto.setApellido(alumno.getApellido());
         dto.setCarrera(alumno.getCarrera());
+        dto.setTelefono(alumno.getTelefono());
+        dto.setEmail(alumno.getEmail());
+        dto.setImagenurl(alumno.getImagenURL());
 
         // Transformamos la lista de Materias a lista de MateriaDTOs
         List<MateriaDTO> materiasDTO = new ArrayList<>();

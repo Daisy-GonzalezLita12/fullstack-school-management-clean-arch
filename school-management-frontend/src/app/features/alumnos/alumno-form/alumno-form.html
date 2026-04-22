@@ -1,0 +1,34 @@
+<div class="dashboard-container">
+  <div class="search-header">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Buscar por Nombre o ID...">
+      <i class="fas fa-filter"></i>
+    </div>
+    <button class="btn-nuevo">
+      Nivel Alumno <i class="fas fa-plus"></i>
+    </button>
+  </div>
+
+  <h2 class="section-title">Listado de Alumnos</h2>
+
+  <div class="student-grid">
+    <div class="student-card" *ngFor="let alumno of alumnos">
+      <div class="card-content">
+        <img [src]="alumno.imgUrl || 'assets/default-avatar.png'" class="avatar">
+        <div class="info">
+          <h3>{{ alumno.nombre }} {{ alumno.apellido }}</h3>
+          <span class="badge-id">numeroControl: {{ alumno.numeroControl }}</span>
+          <span class="badge-nivel">Carrera: {{ alumno.carrera}}</span>
+          <p><i class="fas fa-phone"></i> {{ alumno.telefono }}</p>
+          <p><i class="fas fa-envelope"></i> {{ alumno.correo }}</p>
+        </div>
+      </div>
+      
+      <div class="card-actions">
+        <button class="btn-action edit"><i class="fas fa-pencil-alt"></i></button>
+        <button class="btn-action delete"><i class="fas fa-trash"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

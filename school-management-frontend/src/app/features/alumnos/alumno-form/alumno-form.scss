@@ -1,0 +1,103 @@
+.dashboard-container {
+  background-color: #1a1d23; /* Fondo oscuro profundo */
+  color: #ffffff;
+  padding: 30px;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Buscador Estilo Glassmorphism */
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.search-bar {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 10px 20px;
+  width: 60%;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  margin: 0 10px;
+}
+
+/* Tarjetas de Alumnos */
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.student-card {
+  background: #2c313a;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-content {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c5a059; /* Borde dorado/beige */
+}
+
+/* Botones de Acción Minimalistas */
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.edit { background-color: #c5a059; } /* Dorado */
+.delete { background-color: #8b2f34; } /* Rojo oscuro */
+
+.btn-action:hover {
+  opacity: 0.8;
+}
+.btn-nuevo {
+  border-radius: 50px !important; /* El !important asegura que sobreescriba estilos de Bootstrap */
+  padding: 10px 25px;            /* Un poco de espacio extra a los lados se ve mejor */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 112px;                      /* Espacio por si le pones un icono + */
+  transition: all 0.3s ease;
+}
+
+.btn-nuevo:hover {
+  transform: scale(1.05);        /* Un pequeño efecto al pasar el mouse */
+}
