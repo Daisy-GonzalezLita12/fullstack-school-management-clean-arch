@@ -7,6 +7,7 @@ export default function AlumnoForm({
   onSubmit,
   onClear,
   isEditing = false,
+  mensaje = {}
 }) {
   const fileInputRef = useRef(null);
 
@@ -31,11 +32,11 @@ export default function AlumnoForm({
         <label style={styles.label}>ID Único</label>
         <input
           type="number"
-          value={formData.idUnico ?? ""}
-          onChange={handleField("idUnico")}
-          placeholder="1001"
+          value={formData.id ?? ""}
+          onChange={handleField("id")}
+          placeholder="Autogenerado"
           style={styles.input}
-          disabled={isEditing}
+          disabled={true}
         />
       </div>
 
@@ -105,9 +106,9 @@ export default function AlumnoForm({
         <div style={styles.imageRow}>
           {/* Avatar preview */}
           <div style={styles.avatarWrapper}>
-            {formData.imagenPreview ? (
+            {(formData.imagenPreview || formData.foto) ? (
               <img
-                src={formData.imagenPreview}
+                src={formData.imagenPreview || formData.foto}
                 alt="preview"
                 style={styles.avatarImg}
               />
@@ -148,6 +149,18 @@ export default function AlumnoForm({
           Limpiar
         </button>
       </div>
+
+      {/* ── Mensaje ── */}
+      {mensaje.texto && (
+        <div style={{ 
+          marginTop: "20px", padding: "12px", borderRadius: "8px", fontWeight: "600", fontSize: "13px", textAlign: "center",
+          backgroundColor: mensaje.tipo === "error" ? "#ffebee" : "#e8f5e9",
+          color: mensaje.tipo === "error" ? "#c62828" : "#2e7d32",
+          border: `1px solid ${mensaje.tipo === "error" ? "#ffcdd2" : "#c8e6c9"}`
+        }}>
+          {mensaje.tipo === "error" ? "⚠️ " : "✅ "} {mensaje.texto}
+        </div>
+      )}
     </div>
   );
 }
