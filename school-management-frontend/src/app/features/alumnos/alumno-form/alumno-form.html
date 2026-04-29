@@ -1,0 +1,41 @@
+<div>
+  <h2>{{ modoEdicion ? 'Editar alumno' : 'Nuevo alumno' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+
+    <div>
+      <label>Nombre</label>
+      <input formControlName="nombre" type="text" />
+      <span *ngIf="form.get('nombre')?.invalid && form.get('nombre')?.touched">
+        El nombre es requerido
+      </span>
+    </div>
+
+    <div>
+      <label>Apellido</label>
+      <input formControlName="apellido" type="text" />
+      <span *ngIf="form.get('apellido')?.invalid && form.get('apellido')?.touched">
+        El apellido es requerido
+      </span>
+    </div>
+
+    <div>
+      <label>Correo</label>
+      <input formControlName="correo" type="email" />
+      <span *ngIf="form.get('correo')?.invalid && form.get('correo')?.touched">
+        Ingresa un correo válido
+      </span>
+    </div>
+
+    <div>
+      <label>Edad</label>
+      <input formControlName="edad" type="number" />
+      <span *ngIf="form.get('edad')?.invalid && form.get('edad')?.touched">
+        La edad debe ser mayor a 0
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid">Guardar</button>
+
+  </form>
+</div>
