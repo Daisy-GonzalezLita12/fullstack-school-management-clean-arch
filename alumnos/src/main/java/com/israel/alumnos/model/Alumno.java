@@ -25,16 +25,20 @@ public class Alumno {
     @Column(nullable = false, unique = true)
     private String correo;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String foto;
+
     public Alumno() {
     }
 
-    public Alumno(Long id, String numeroControl, String nombre, String apellido, String telefono, String correo) {
+    public Alumno(Long id, String numeroControl, String nombre, String apellido, String telefono, String correo, String foto) {
         this.id = id;
         this.numeroControl = numeroControl;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.correo = correo;
+        this.foto = foto;
     }
 
     // Getters and Setters
@@ -85,5 +89,13 @@ public class Alumno {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

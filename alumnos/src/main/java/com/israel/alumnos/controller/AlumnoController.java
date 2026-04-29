@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/alumnos")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class AlumnoController {
 
     @Autowired
@@ -27,14 +27,14 @@ public class AlumnoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Alumno> getAlumnoById(@PathVariable Long id) {
+    public ResponseEntity<Alumno> getAlumnoById(@PathVariable("id") Long id) {
         return alumnoRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Alumno> updateAlumno(@PathVariable Long id, @RequestBody Alumno alumnoDetails) {
+    public ResponseEntity<Alumno> updateAlumno(@PathVariable("id") Long id, @RequestBody Alumno alumnoDetails) {
         return alumnoRepository.findById(id)
                 .map(alumno -> {
                     alumno.setNumeroControl(alumnoDetails.getNumeroControl());
@@ -42,6 +42,7 @@ public class AlumnoController {
                     alumno.setApellido(alumnoDetails.getApellido());
                     alumno.setTelefono(alumnoDetails.getTelefono());
                     alumno.setCorreo(alumnoDetails.getCorreo());
+                    alumno.setFoto(alumnoDetails.getFoto());
                     Alumno updatedAlumno = alumnoRepository.save(alumno);
                     return ResponseEntity.ok(updatedAlumno);
                 })
@@ -49,7 +50,7 @@ public class AlumnoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAlumno(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAlumno(@PathVariable("id") Long id) {
         return alumnoRepository.findById(id)
                 .map(alumno -> {
                     alumnoRepository.delete(alumno);
