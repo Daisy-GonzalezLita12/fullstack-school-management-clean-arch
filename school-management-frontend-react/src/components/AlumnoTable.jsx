@@ -57,9 +57,7 @@ export default function AlumnoTable({
           onChange={(e) => { setBusqueda(e.target.value); setPaginaActual(1); }}
           style={s.searchInput}
         />
-        <button onClick={onNuevo} style={s.btnNuevo}>
-          Nueva Persona
-        </button>
+        
       </div>
 
       {/* ── Tabla ── */}
